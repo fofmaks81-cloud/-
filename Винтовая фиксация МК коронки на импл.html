@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Винтовая фиксация МК коронки на имплантате</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            background: #f0f5fa;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,32,64,0.1);
+            padding: 2rem 2.5rem;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #0b2b4f;
+            margin-bottom: 0.5rem;
+            border-left: 8px solid #2c7da0;
+            padding-left: 1.5rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            margin-top: 0.5rem;
+            padding-left: 2.5rem;
+            background: #e9f2f9;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            display: inline-block;
+        }
+        .mind-map-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            margin: 2.5rem 0 2rem;
+        }
+        .mind-node {
+            flex: 1 1 200px;
+            background: #ffffff;
+            border: 1px solid #d1e0eb;
+            border-radius: 24px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,40,70,0.06);
+            transition: all 0.2s;
+        }
+        .mind-node:hover {
+            background: #f0f7ff;
+            border-color: #2c7da0;
+        }
+        .mind-node .visit-badge {
+            background: #12455f;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+        .mind-node h3 {
+            font-size: 1.3rem;
+            margin: 0.4rem 0;
+            color: #0b2b4f;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #0b2b4f;
+            margin: 2.5rem 0 1.2rem;
+            border-bottom: 3px solid #a9cee4;
+            padding-bottom: 0.3rem;
+        }
+        .table-visit {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f9fcff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0,32,64,0.05);
+            margin: 1.8rem 0;
+        }
+        .table-visit th {
+            background: #1e4a6b;
+            color: white;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 1rem;
+            text-align: left;
+        }
+        .table-visit td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid #d6e4ef;
+            vertical-align: top;
+        }
+        .table-visit tr:last-child td {
+            border-bottom: none;
+        }
+        .doctor-col {
+            background-color: #eef5fa;
+            width: 38%;
+        }
+        .assistant-col {
+            background-color: #f3f9ff;
+            width: 38%;
+        }
+        .tools-col {
+            background-color: #ffffff;
+            width: 24%;
+            font-weight: 500;
+            color: #0b3b5c;
+        }
+        .badge-step {
+            background: #0b2b4f;
+            color: white;
+            border-radius: 30px;
+            padding: 0.2rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+        .impression-method {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .method-card {
+            flex: 1 1 300px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 12px 24px -8px rgba(21, 50, 80, 0.12);
+            border: 1px solid #cfdeed;
+        }
+        .method-card h3 {
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: #144e70;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            border-left: 6px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        .method-card ul {
+            padding-left: 1.4rem;
+            line-height: 1.8;
+            color: #1d3b5c;
+        }
+        .scheme-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: #e3f0f9;
+            border-radius: 48px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .scheme-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 500;
+            color: #0b2b4f;
+        }
+        .scheme-item span {
+            background: #1f6e93;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .ergo-block {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            background: #fff5e6;
+            border-radius: 28px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .ergo-item {
+            flex: 1 1 250px;
+        }
+        .footnote {
+            background: #fef7e9;
+            padding: 1.2rem 2rem;
+            border-radius: 40px;
+            border-left: 8px solid #f4b942;
+            margin-top: 2rem;
+        }
+        .two-col-list {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .col-list {
+            flex: 1 1 300px;
+            background: #f6fafd;
+            border-radius: 24px;
+            padding: 1.5rem;
+        }
+        @media (max-width: 800px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🦷 Винтовая фиксация металлокерамической коронки на имплантате</h1>
+
+    <!-- MIND MAP 4 посещений -->
+    <div class="mind-map-grid">
+        <div class="mind-node"><span class="visit-badge">Посещение 1</span><h3>Диагностика + слепки</h3><p>Выбор метода, снятие оттисков, регистрация прикуса, временный абатмент</p></div>
+        <div class="mind-node"><span class="visit-badge">Посещение 2</span><h3>Примерка каркаса</h3><p>Проверка металлического колпачка, коррекция</p></div>
+        <div class="mind-node"><span class="visit-badge">Посещение 3</span><h3>Припасовка керамики</h3><p>Оценка цвета, формы, окклюзии, коррекция</p></div>
+        <div class="mind-node"><span class="visit-badge">Посещение 4</span><h3>Винтовая фиксация</h3><p>Постоянная фиксация, затяжка, пломбировка канала</p></div>
+    </div>
+    <!-- ========== ТАБЛИЦЫ ПОСЕЩЕНИЙ ========== -->
+
+    <!-- Посещение 1 -->
+    <table class="table-visit">
+        <thead><tr><th>Посещение 1 · Слепки, регистрация прикуса</th><th>Действия врача</th><th>Действия ассистента</th></tr></thead>
+        <tbody>
+            <tr>
+                <td class="tools-col"><span class="badge-step">🔧 оснащение</span>смотровой набор, набор трансферов (открытые/закрытые), оттискные ложки, силикон (А-силикон), аналоги, временные абатменты</td>
+                <td class="doctor-col">▪ Выбор открытого или закрытого метода<br>▪ Установка трансфера в имплантат (фиксация винтом)<br>▪ Rg-контроль положения (по требованию)<br>▪ Открытый метод - вывод винтов через отверстия ложки<br>▪ Снятие оттиска (двухслойная техника)<br>▪ Определение цвета будущей коронки<br>▪ Снятие прикусного шаблона / регистрация центральной окклюзии</td>
+                <td class="assistant-col">✅ Подготовить ложку (перфорация под открытый метод)<br>✅ Подать трансфер, отвертку, динамометрический ключ<br>✅ Замешать силикон (база + корригирующий слой с установленным смесителем на диспенсере)<br>✅ Подать материал для регистрации прикуса - Speedex - есть антагонисты / воск - полное или частичное отсутствие зубов(окклюзионный силикон / воск)<br>✅ Подготовить временный абатмент + защитный колпачок</td>
+            </tr>
+            <tr>
+                <td class="tools-col"><span class="badge-step">⚙️ после</span> антисептик, временный абатмент, отвертка</td>
+                <td>▪ Фиксация временного абатмента(фдм) / защитного колпачка<br>▪ Назначить дату примерки каркаса</td>
+                <td>✅ Подать временный абатмент и винт, салфетки, антисептик</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Посещение 2 (примерка каркаса) -->
+    <table class="table-visit">
+        <thead><tr><th>Посещение 2 · Проверка литого металлического каркаса (колпачка)</th><th>Действия врача</th><th>Помощь ассистента</th></tr></thead>
+        <tbody>
+            <tr>
+                <td class="tools-col"><span class="badge-step">🔧 оснащение</span>лоток с инструментами, металлический каркас (из лаборатории), винт фиксации, артикуляционная бумага, флосс, зонд, динамометрическая ключ, отвёртка, барабан, спирт</td>
+                <td>▪ Снять временный абатмент, очистить имплантат<br>▪ Установить металлический каркас на имплантат, затянуть винт вручную<br>▪ Проверить пассивность прилегания, краевое прилегание (визуально + зонд)<br>▪ Оценить апроксимальные контакты флоссом<br>▪ Проверить окклюзию (центральная, боковые) артикуляционной бумагой<br>▪ При необходимости – коррекция каркаса (сошлифовка) в полости рта или отправка в лабораторию</td>
+                <td>✅ Подготовить отвертку, ключ<br>✅ Спирт <br>✅ Помочь с ретракцией десны - ретракционная нить, гемостатик - по требованию<br>✅ Подать артикуляционную бумагу, флосс<br>✅ Зафиксировать пожелания по коррекции в лабораторном направлении</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Посещение 3 (припасовка с керамикой) -->
+    <table class="table-visit">
+        <thead><tr><th>Посещение 3 · Припасовка готовой металлокерамической коронки (до глазурования)</th><th>Действия врача</th><th>Помощь ассистента</th></tr></thead>
+        <tbody>
+            <tr>
+                <td class="tools-col"><span class="badge-step">🔧 оснащение</span>лоток с инструментами, коронка с керамикой, винт, бумага артикуляционная, фрезы, полиры для керамики, прямой наконечник, спирт, водяное охлаждение</td>
+                <td>▪ Очистить имплантат, установить коронку, затянуть винт пальцевым усилием<br>▪ Оценить межпроксимальные контакты (флосс – легкое усилие)<br>▪ Проверить окклюзию во всех движениях; выявить суперконтакты (копирка)<br>▪ При необходимости – коррекция керамики алмазными инструментами с водяным охлаждением<br>▪ Согласовать с пациентом цвет и форму<br>▪ Если всё хорошо – снять, отправить на глазурование</td>
+                <td>✅ Подать отвертку и динамометрический ключ<br>✅ Подготовить воду/спрей для охлаждения при коррекции<br>✅ Записать замечания для техника, приложить фото/цвет<br>✅ Обработать коронку спиртом перед установкой</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Посещение 4 (окончательная фиксация) -->
+    <table class="table-visit">
+        <thead><tr><th>Посещение 4 · Окончательная винтовая фиксация</th><th>Действия врача</th><th>Помощь ассистента</th></tr></thead>
+        <tbody>
+            <tr>
+                <td class="tools-col"><span class="badge-step">🔧 оснащение</span>лоток с инструментами, коронка после глазурования, винт для фиксации, динамометрический ключ, ватные валики, ХГ 0,05%, материал для пломбировки канала (фум-лента, композит), рентген-аппарат</td>
+                <td>▪ Снять временную защиту, тщательно очистить внутреннюю полость коронки и имплантат (спирт, ХГ 0,05%)<br>▪ Установить коронку, ввести винт, предварительно затянуть рукой<br>▪ Окончательная затяжка динамометрическим ключом<br>▪ Закрыть винтовой канал фум-лентой и композитом / текучим композитом с полимеризацией<br>▪ Rg-контроль (посадка, затяжка)<br>▪ Проверить окклюзию после фиксации</td>
+                <td>Ключ, отвёртка<br>✅ Подготовить материал для пломбирования канала (бонд, жидкотекучий композит, гладилка, лампа)<br>✅ При необходимости – ретракционные нити для доступа к краю коронки<br>✅ Ассистировать с рентген-позиционированием</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- ========== ПАМЯТКА АССИСТЕНТУ  ========== -->
+    <div class="footnote">
+        <strong>📌 Краткий чек-лист для ассистента на каждом этапе</strong><br>
+        🟢 Посещение 1: трансфер (открытый/закрытый), винт, ложка (перфорированная/обычная), силикон, аналог имплантата, временный абатмент.<br>
+        🟡 Посещение 2: металлический каркас, винт, ключ, артикуляционная бумага, флосс, коррекционные инструменты, спирт.<br>
+        🟠 Посещение 3: коронка, винт фиксации, фрезы, полировочные диски для керамики, динамометрический ключ, спирт, ХГ 0,05%.<br>
+        🔴 Посещение 4: винт, динамометрический ключ, фум-лента, композит для закрытия шахты винта, Rg-аппарат.
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Стоматологические СОПы - Протоколы лечения</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-title">Стоматологические СОПы</div>
+          <div class="brand-subtitle">Протоколы лечения</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>Стандартные операционные процедуры</h1>
+        <p>
+          Выберите раздел и протокол: содержимое протокола подставляется интерактивно.
+        </p>
+      </section>
+
+      <section class="panel">
+        <details id="ortopediaSection" class="details" open>
+          <summary class="details-summary" role="button" aria-controls="ortopediaPanel">
+            Ортопедия
+          </summary>
+
+          <div id="ortopediaPanel" class="details-body">
+            <div class="row">
+              <label for="ortopediaProtocolSearch" class="label">Поиск:</label>
+              <input
+                id="ortopediaProtocolSearch"
+                class="input"
+                type="search"
+                placeholder="Начните вводить название протокола..."
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="row">
+              <label for="ortopediaProtocolSelect" class="label">Протокол:</label>
+              <select id="ortopediaProtocolSelect" class="select">
+                <option value="">Выберите протокол</option>
+              </select>
+
+              <a
+                id="ortopediaOpenLink"
+                class="btn btn-secondary"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+              >
+                Открыть
+              </a>
+            </div>
+
+            <div id="ortopediaProtocolContent" class="protocol-content" aria-live="polite">
+              <p id="ortopediaProtocolHint" class="muted">Выберите протокол, чтобы увидеть его текст.</p>
+              <iframe
+                id="ortopediaProtocolFrame"
+                class="protocol-frame"
+                title="Протокол"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <script id="ortopediaData" type="application/json">
+        {
+          "categoryTitle": "Ортопедия",
+          "protocols": [
+            {
+              "id": "ortho-01",
+              "title": "Двухслойный двухэтапный силиконовый оттиск",
+              "href": "./Двухслойный двухэтапный силиконовый оттиск.html"
+            },
+            {
+              "id": "ortho-02",
+              "title": "Винтовая фиксация МК коронки на импл",
+              "href": "./Винтовая фиксация МК коронки на импл.html"
+            },
+            {
+              "id": "ortho-03",
+              "title": "Частичный съёмный пластиночный протез (ЧСПП)",
+              "href": "./Частичный съёмный пластиночный протез (ЧСПП).html"
+            },
+            {
+              "id": "ortho-04",
+              "title": "Цементная фиксация металлокерамической коронки на имплантате",
+              "href": "./Цементная фиксация металлокерамической коронки на имплантате.html"
+            },
+            {
+              "id": "ortho-05",
+              "title": "Фиксация коронок и мостовидных протезов",
+              "href": "./Фиксация коронок и мостовидных протезов.html"
+            },
+            {
+              "id": "ortho-06",
+              "title": "Съёмный протез со сферическими аттачментами на имплантатах",
+              "href": "./Съёмный протез со сферическими аттачментами на имплантатах.html"
+            },
+            {
+              "id": "ortho-07",
+              "title": "Съёмный протез с балочной системой на имплантатах",
+              "href": "./Съёмный протез с балочной системой на имплантатах.html"
+            },
+            {
+              "id": "ortho-08",
+              "title": "Снятие искусственной коронки с зуба",
+              "href": "./Снятие искусственной коронки с зуба.html"
+            },
+            {
+              "id": "ortho-09",
+              "title": "Проверка конструкции съёмных протезов",
+              "href": "./Проверка конструкции съёмных протезов.html"
+            },
+            {
+              "id": "ortho-10",
+              "title": "Припасовка искусственной коронки",
+              "href": "./Припасовка искусственной коронки.html"
+            },
+            {
+              "id": "ortho-11",
+              "title": "Припасовка индивидуальной ложки",
+              "href": "./Припасовка индивидуальной ложки.html"
+            },
+            {
+              "id": "ortho-12",
+              "title": "Починка пластиночного протеза с добавлением зуба или кламмера",
+              "href": "./Починка пластиночного протеза с добавлением зуба или кламмера.html"
+            },
+            {
+              "id": "ortho-13",
+              "title": "Определение центральной окклюзии",
+              "href": "./Определение центральной окклюзии.html"
+            },
+            {
+              "id": "ortho-14",
+              "title": "Получение оттиска альгинатной массой",
+              "href": "./Получение оттиска альгинатной массой.html"
+            },
+            {
+              "id": "ortho-15",
+              "title": "Металлокерамический мостовидный протез",
+              "href": "./Металлокерамический мостовидный протез.html"
+            },
+            {
+              "id": "ortho-16",
+              "title": "Клиническая перебазировка съёмного протеза",
+              "href": "./Клиническая перебазировка съёмного протеза.html"
+            },
+            {
+              "id": "ortho-17",
+              "title": "Изготовление фарфоровой (керамической) коронки",
+              "href": "./Изготовление фарфоровой (керамической) коронки.html"
+            },
+            {
+              "id": "ortho-18",
+              "title": "Изготовление оттисков открытым методом при протезировании на имплантатах",
+              "href": "./Изготовление оттисков открытым методом при протезировании на имплантатах.html"
+            },
+            {
+              "id": "ortho-19",
+              "title": "Изготовление оттисков закрытым методом при протезировании на имплантатах",
+              "href": "./Изготовление оттисков закрытым методом при протезировании на имплантатах.html"
+            },
+            {
+              "id": "ortho-20",
+              "title": "Коррекция базисов съёмных протезов (частичных и полных)",
+              "href": "./Коррекция базисов съёмных протезов (частичных и полных).html"
+            },
+            {
+              "id": "ortho-21",
+              "title": "ЛКВ",
+              "href": "./ЛКВ.html"
+            },
+            {
+              "id": "ortho-22",
+              "title": "Изготовление бюгельного протеза цельнолитым каркасом",
+              "href": "./Изготовление бюгельного протеза цельнолитым каркасом.html"
+            }
+          ]
+        }
+      </script>
+
+
+      <noscript>
+        <div class="notice notice-warn">
+          Для интерактивности требуется JavaScript. Включите его и обновите страницу.
+        </div>
+      </noscript>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
